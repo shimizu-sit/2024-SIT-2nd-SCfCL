@@ -1,9 +1,9 @@
 ---
-tittle: 第4回コンピュータリテラシ発展
+title: 第4回 コンピュータリテラシ発展
+theme: "default"
 marp: true
 math: katex
 paginate: true
-theme: lecture-note
 ---
 
 # コンピュータリテラシ発展 〜Pythonを学ぶ〜
@@ -15,7 +15,7 @@ theme: lecture-note
 
 ---
 
-<div class="fontsize_up">
+<div Align=center>
 
 # 今回の授業内容
 
@@ -25,15 +25,19 @@ theme: lecture-note
 
 # 今回の授業内容
 
-- 前回の課題解説
-- 準備：Google Driveをマウントする
-- 準備：PythonでExcelを操作する
-- Excelの値を表示する
-- 課題
+- [前回の課題解説](#前回の課題解説)
+- [準備：Google Driveをマウントする](#準備google-driveをマウントする)
+- [準備：PythonでExcelを操作する](#準備pythonでexcelを操作する)
+- [Excelの値を表示する](#excelの値を表示する)
+- [課題](#課題)
 
 ---
 
+<div Align=center>
+
 # 前回の課題解説
+
+</div>
 
 ---
 
@@ -44,11 +48,15 @@ theme: lecture-note
 
 ## 解答例
 
-https://colab.research.google.com/drive/1cSbv7433vu-KOPAukJfHS04fbAp0khyG?usp=sharing
+https://colab.research.google.com/drive/1FlGnJGI-JesnsXpq76McGehOqlgRpb-A?usp=sharing
 
 ---
 
+<div Align=center>
+
 # 準備：Google Driveをマウントする
+
+</dvi>
 
 ---
 
@@ -79,26 +87,41 @@ ColabでExcelファイルを扱う方法は複数あります
 
 # Google Driveをマウントする手順
 
-![w:900](img/05-001.png)
+<div Align=center>
 
+![w:900](./img/04-001.png)
 
----
-
-# Google Driveをマウントする手順
-
-![w:900](img/05-002.png)
+</dvi>
 
 ---
 
 # Google Driveをマウントする手順
 
-![w:900](img/05-003.png)
+<dvi Align=center>
+
+![w:900](./img/04-002.png)
+
+</div>
 
 ---
 
 # Google Driveをマウントする手順
 
-![w:900](img/05-004.png)
+<div Align=center>
+
+![w:900](./img/04-003.png)
+
+</div>
+
+---
+
+# Google Driveをマウントする手順
+
+<div Align=center>
+
+![w:900](./img/04-004.png)
+
+</div>
 
 ---
 
@@ -115,23 +138,39 @@ ColabでExcelファイルを扱う方法は複数あります
 
 # Colabからフォルダを作成する方法
 
-![w:900](img/05-005.png)
+<dvi Align=center>
+
+![w:900](./img/04-005.png)
+
+</div>
 
 ---
 
 # Colabからフォルダを作成する方法
 
-![w:900](img/05-006.png)
+<dvi Align=center>
+
+![w:900](./img/04-006.png)
+
+</div>
 
 ---
 
 # Colabからフォルダを作成する方法
 
-![w:900](img/05-007.png)
+<div Align=center>
+
+![w:900](./img/04-007.png)
+
+</div>
 
 ---
+
+<div Align=center>
 
 # 準備：PythonでExcelを操作する
+
+</div>
 
 ---
 
@@ -154,7 +193,7 @@ ColabでExcelファイルを扱う方法は複数あります
 - 念のためにインストールする場合はColabで以下のコードを入力して実行します
 
 
-```python
+```shell
 !pip install openpyxl
 ```
 
@@ -172,7 +211,11 @@ import openpyxl as op
 
 ---
 
+<dvi Align=center>
+
 # Excelの値を表示する
+
+</dvis>
 
 ---
 
@@ -188,7 +231,11 @@ import openpyxl as op
 
 # Excelファイルの中身を確認
 
-![w:800](img/05-008.png)
+<div Align=center>
+
+![w:800](./img/04-008.png)
+
+</div>
 
 ---
 
@@ -196,8 +243,11 @@ import openpyxl as op
 
 - **Excelファイル** = **Workbook**オブジェクト
 
-![w:800](img/05-008.png)
+<dvi Align=center>
 
+![w:750](./img/04-008.png)
+
+</div>
 
 ---
 
@@ -205,7 +255,11 @@ import openpyxl as op
 
 - **シート** = **Worksheet**オブジェクト
 
-![w:800](img/05-009.png)
+<div Align=center>
+
+![w:800](./img/04-009.png)
+
+</div>
 
 ---
 
@@ -213,7 +267,11 @@ import openpyxl as op
 
 - **セル** = **Cell**オブジェクト
 
-![w:800](img/05-010.png)
+<div Align=center>
+
+![w:800](./img/04-010.png)
+
+</div>
 
 ---
 
@@ -280,7 +338,12 @@ print(value)
 ```python
 Workbookオブジェクト.Cell(row=行数番号, colum=列数番号)
 ```
-![w:950](img/05-011.png)
+
+<div Align=center>
+
+![w:950](./img/04-011.png)
+
+</div>
 
 ---
 
@@ -335,13 +398,17 @@ for cell in list(sheet.columns)[1]:
 
 ---
 
+<div Align=center>
+
 # 課題
+
+</div>
 
 ---
 
 # 課題
 
-- Moodleにある「SCfCL-5th-prac.ipynb」ファイルと「memberlist.xlsx」ファイルをダウンロードしてColabにアップロードしてください
+- Moodleにある「SCfCL-4th-prac.ipynb」ファイルと「memberlist.xlsx」ファイルをダウンロードしてColabにアップロードしてください
 - 課題が完了したら「File」>「Download」>「Download .ipynb」で「.ipynb」形式でダウンロードしてください
 - ダウンロードした **.ipynbファイル** をMoodleに提出してください
-- 提出期限は **5月23日(木) 20時まで** です
+- 提出期限は **11月17日(木) 20時まで** です
