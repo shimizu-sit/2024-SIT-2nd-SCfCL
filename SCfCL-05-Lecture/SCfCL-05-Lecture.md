@@ -1,5 +1,5 @@
 ---
-title: 第4回 コンピュータリテラシ発展
+title: 第5回 コンピュータリテラシ発展
 theme: "default"
 marp: true
 math: katex
@@ -8,7 +8,7 @@ paginate: true
 
 # コンピュータリテラシ発展 〜Pythonを学ぶ〜
 
-## 第4回：Excel作業を自動化しよう
+## 第5回：Excel作業を自動化しよう(2)
 
 情報学部 情報学科 情報メディア専攻
 清水 哲也 ( shimizu@info.shonan-it.ac.jp )
@@ -26,9 +26,8 @@ paginate: true
 # 今回の授業内容
 
 - [前回の課題解説](#前回の課題解説)
-- [準備：Google Driveをマウントする](#準備google-driveをマウントする)
-- [準備：PythonでExcelを操作する](#準備pythonでexcelを操作する)
-- [Excelの値を表示する](#excelの値を表示する)
+- [Excelファイルの編集](#excelファイルを編集する)
+- [Excelのレイアウトを編集](#excelのレイアウトを編集)
 - [課題](#課題)
 
 ---
@@ -48,353 +47,404 @@ paginate: true
 
 ## 解答例
 
-https://colab.research.google.com/drive/1FlGnJGI-JesnsXpq76McGehOqlgRpb-A?usp=sharing
+（解答例を作成したらURLを貼り付ける）
 
 ---
 
 <div Align=center>
 
-# 準備：Google Driveをマウントする
-
-</dvi>
-
----
-
-# Colab上でExcelファイルを扱うためには？
-
-ColabでExcelファイルを扱う方法は複数あります
-1. プログラムでExcelファイルを読み込む方法
-2. ローカルにあるExcelファイルを読み込む方法
-3. Google Driveをマウントして読み込む方法
-4. Colabに直接アップロードして読み込む方法
-
----
-
-# Colab上でExcelファイルを扱うためには？
-
-一番簡単な方法
-
-- **4.「Colabに直接アップロードして読み込む方法」**
-- **注意** ：ランタイムが終了するとファイルが削除されます
-
-この授業では
-
-- **3.「Google Driveをマウントして読み込む方法」**
-- 作業しているファイルが削除されずに済むのでこの方法を採用します
-- 基本的に今後この形式でファイル読み込みを行うので覚えておいてください
-
----
-
-# Google Driveをマウントする手順
-
-<div Align=center>
-
-![w:900](./img/04-001.png)
-
-</dvi>
-
----
-
-# Google Driveをマウントする手順
-
-<dvi Align=center>
-
-![w:900](./img/04-002.png)
+# Excelファイルを編集する
 
 </div>
 
 ---
 
-# Google Driveをマウントする手順
+# Excelファイルを新規作成する
 
-<div Align=center>
-
-![w:900](./img/04-003.png)
-
-</div>
-
----
-
-# Google Driveをマウントする手順
-
-<div Align=center>
-
-![w:900](./img/04-004.png)
-
-</div>
-
----
-
-# Drive上に作業用フォルダを作成
-
-- MyDriveの直下にフォルダを作成します
-- 作成方法
-  - Colabから作成する方法
-  - Driveから作成する方法
-- フォルダ名は**アルファベットのみ**にしてください
-- 例：「Hatten」「CLHatten」など
-
----
-
-# Colabからフォルダを作成する方法
-
-<dvi Align=center>
-
-![w:900](./img/04-005.png)
-
-</div>
-
----
-
-# Colabからフォルダを作成する方法
-
-<dvi Align=center>
-
-![w:900](./img/04-006.png)
-
-</div>
-
----
-
-# Colabからフォルダを作成する方法
-
-<div Align=center>
-
-![w:900](./img/04-007.png)
-
-</div>
-
----
-
-<div Align=center>
-
-# 準備：PythonでExcelを操作する
-
-</div>
-
----
-
-# OpenPyXLについて
-
-- PythonでExcelの読み書きをするためのライブラリです
-- Pythonを使って次のような操作ができます
-  - セルの値をPythonで読み書きする
-  - 複数のExcelファイル間でデータをコピーする
-  - フォント設定を変更する
-  - Excelの行高や列幅を調整する
-  - グラフを追加する
-
----
-
-# OpenPyXLについて
-
-- OpenPyXLはサードパーティライブラリなので環境によってはインストールが必要になります
-- Google Colabの場合はすでにインストールされているのでインストール作業は不要です
-- 念のためにインストールする場合はColabで以下のコードを入力して実行します
-
-
-```shell
-!pip install openpyxl
-```
-
----
-
-# OpenPyXLについて
-
-- OpenPyXLはライブラリなのでPython上で使うためにはインポートする必要があります
-- インポートはNotebookのはじめに1回だけ実行すればそれ以降はインポートされた状態になります
-- コーディングするうえで「`openpyxl`」を何度も書くのは面倒なので名前を「`op`」に変更してインポートします
+- Excelファイル（ワークブック）を新規作成します
 
 ```python
 import openpyxl as op
+
+wb = op.Workbook()
+wb.save('filename.xlsx')
 ```
 
----
-
-<dvi Align=center>
-
-# Excelの値を表示する
-
-</dvis>
+- `Workbook`の引数を空にすると新しいワークブックを読み込みます
+- `save()`メソッドで保存します
+- 保存場所を指定したい場合はパスを含めて指定する必要があります
 
 ---
 
-# Excelファイルの準備
+# Excelファイルを新規作成する
 
-- Moodleから「Shopping.xlsx」をダウンロードしてください
-- MyDrive直下に作成した作業用フォルダにアップロードします
-- アップロード方法
-  - Colabからアップロードする方法
-  - Driveからアップロードする方法
+- Excelファイル（ワークブック）を新規作成します（パスを含む場合）
+
+```python
+import openpyxl as op
+
+wb = op.Workbook()
+wb.save('/content/drive/MyDrive/???/filename.xlsx')
+```
+
+- `Workbook`の引数を空にすると新しいワークブックを読み込みます
+- `save()`メソッドで保存します
+- 保存場所を指定したい場合はパスを含めて指定する必要があります
 
 ---
 
-# Excelファイルの中身を確認
+# 新規作成したExcelファイルの確認
 
 <div Align=center>
 
-![w:800](./img/04-008.png)
+![w:900](./img/05-001.png)
 
 </div>
 
 ---
 
-# ExcelとOpenPyXLのオブジェクト
+# Excelシートを追加/削除します
 
-- **Excelファイル** = **Workbook**オブジェクト
-
-<dvi Align=center>
-
-![w:750](./img/04-008.png)
-
-</div>
-
----
-
-# ExcelとOpenPyXLのオブジェクト
-
-- **シート** = **Worksheet**オブジェクト
-
-<div Align=center>
-
-![w:800](./img/04-009.png)
-
-</div>
-
----
-
-# ExcelとOpenPyXLのオブジェクト
-
-- **セル** = **Cell**オブジェクト
-
-<div Align=center>
-
-![w:800](./img/04-010.png)
-
-</div>
-
----
-
-# 指定したセルの値を取得する
-
-- shopping.xlsx内のB1セルの値を取得して表示するプログラムを作成します
-- 手順は以下の通りです
-  1. `load_workbook()`メソッドでExcelファイルを読み込みます
-  2. ワークシートとセルを読み込みます
-  3. 読み込んだ値を表示します
-
----
-
-# 指定してセルの値を取得する
-
-- `load_workbook()`メソッドでExcelファイルを読み込みます
-  - セルを取得するためにExcelファイルを取得する必要があります
-  - `load_workbook()`メソッドの引数にファイル名を指定します
-  - ファイル名だけではなくファイルまでのパスも必要です
-  - Colabの場合：対象ファイルを右クリックして「Copy path」でOK
-
----
-
-# 指定したセルの値を取得する
-
-- ワークシートとセルを読み込みます
-  - ワークブックを読み込んだのでワークシートとセルを指定します
-  - 対象のシートは「**Sheet1**」，セルは「**B1**」です
-  - さらに値を取得するので`value`プロパティを指定します
-
----
-
-# 指定したセルの値を取得する
-
-1. `load_workbook()`メソッドでExcelファイルを読み込みます
-2. ワークシートとセルを読み込みます
-3. 読み込んだ値を表示します
-
-```python
-wb = op.load_workbook('/content/drive/MyDrive/???/shopping.xlsx')
-value = wb['Sheet1']['B1'].value
-print(value)
-```
-「**???**」は各自作成したフォルダ名を入れてください
-
----
-
-# 複数のセルをまとめて取得する
-
-- shopping.xlsxの**B列**をすべて取得してみます
-- データが入っているセルがすでにわかっている場合
-  - 対象：セルB1〜B5
-  - 繰り返し処理を利用します
-  - セルの行と列を個別に指定します
-
----
-
-# 複数のセルをまとめて取得する
-
-- セルの行と列を個別に指定する方法
-  - `row`(行)と`colum`(列)を使って個別に指定します
-  - `row=`と`colum=` は省略可能です
-
-```python
-Worksheetオブジェクト.Cell(row=行数番号, colum=列数番号)
-```
-
-<div Align=center>
-
-![w:950](./img/04-011.png)
-
-</div>
-
----
-
-# 複数のセルをまとめて取得する
-
-- shopping.xlsxの**B列**をすべて取得してみます
-- データが入っているセルがすでにわかっている場合
-  - 対象：セルB1〜B5
-  - 繰り返し処理を利用します
-  - セルの行と列を個別に指定します
-- 1行目の `wb` はすでに宣言しているので書かなくても大丈夫です
-
-```python
-wb = op.load_workbook('/content/drive/MyDrive/???/shopping.xlsx')
-sheet = wb[‘Sheet1’]
-
-for i in range(1,6):
-  print(sheet.cell(row=i, column=2).value)
-```
-
----
-
-# list()関数を使ってセルをまとめて取得する
-
-
-- `range()`関数
-  - 最終行を事前に調べる必要があります
-  - 最終行を指定してCellオブジェクトを取得します
-- `list()`関数
-  - 指定した列番号や行番号に存在するExcelの`Cell`オブジェクトをまとめて取得します
-
----
-
-# list()関数を使ってセルをまとめて取得する
-
-- `list()`関数の使い方
-
-```python
-list(Worksheetオブジェクト.columns)[列番号]
-```
-**注意**：listを使う場合列番号はPython上の数え方になりますので**B列**の場合は「**1**」を指定します
-
-- `list()`関数を使ってB列のCellオブジェクトをまとめて取得します
+- 新しいシートを追加します
 
 ```py
-wb = op.load_workbook('/content/drive/MyDrive/???/shopping.xlsx')
-sheet = wb[‘Sheet1’]
-
-for cell in list(sheet.columns)[1]:
-  print(cell.value)
+Workbookオブジェクト.create_sheet()
 ```
+
+- 挿入位置とシート名を指定してシートを追加します
+
+```py
+Workbookオブジェクト.create_sheet(index = 数字, title = 'シート名')
+```
+
+- Excelシートを削除します
+
+```py
+Workbookオブジェクト.remove(Worksheetオブジェクト)
+```
+
+---
+
+# Excelシートを追加/削除します
+
+- 新しいシートを追加します
+
+```py
+wb = op.Workbook()
+
+wb.create_sheet()
+print(wb.sheetnames)
+wb.save('/content/drive/MyDrive/???/create_sheet.xlsx')
+```
+
+<div Align=center>
+
+![](./img/05-002.png)
+
+</div>
+
+---
+
+# Excelシートを追加/削除します
+
+- 挿入位置とシート名を指定して新しいシートを追加します
+
+```py
+wb = op.Workbook()
+
+wb.create_sheet(index = 0, title = 'NewSheet')
+print(wb.sheetnames)
+wb.save('/content/drive/MyDrive/???/create_sheet.xlsx')
+```
+
+<div Align=center>
+
+![](./img/05-003.png)
+
+</div>
+
+---
+
+# Excelシートを追加/削除します
+
+- シートを追加して既存のシートを削除します
+
+```py
+wb = op.Workbook()
+
+wb.create_sheet()
+print(wb.sheetnames)
+
+wb.remove(wb[‘Sheet’])
+print(wb.sheetnames)
+```
+---
+
+# セルの値を編集します
+
+- 指定したセルを編集します
+  - 文字列を入力します　：　`Worksheetオブジェクト[セル] = '文字列'`
+  - 数値を入力します　：　`Worksheetオブジェクト[セル] = 数値`
+  - 数式を入力します　：　`Worksheetオブジェクト[セル] = '=数式'`
+
+---
+
+# セルの値を編集する
+
+```py
+wb = op.Workbook()
+sheet = wb.active
+
+sheet['B2'] = '文字列'       # 文字列
+sheet['B3'] = '10'          # 文字列としての数字
+sheet['B4'] = 10            # 数字
+sheet['B5'] = 20            # 数字
+sheet['B6'] = '=sum(B4:B5)' # Excelの関数
+
+wb.save('/content/drive/MyDrive/???/cell.xlsx')
+```
+
+---
+
+# セルの値を編集します（結果）
+
+<div Align=center>
+
+![](./img/05-004.png)
+
+</div>
+
+---
+
+# フォントを設定します
+
+- `Font()`関数：セルのフォント設定をする関数です
+- `Font()`関数を使用するには`op.styles.fonts.Font`と書く必要があります
+- 書くのが大変なので関数を指定してインポートしておきます
+
+```py
+import openpyxl as op
+from openpyxl.styles.fonts import Font
+```
+
+- `Font`関数の基本的な使い方です
+
+```py
+Font(キーワード引数1=値, キーワード引数2=値・・・)
+```
+
+詳細：https://openpyxl.readthedocs.io/en/stable/styles.html
+
+---
+
+# フォントを設定します
+
+- `Font`関数の基本的な使い方です
+
+```py
+Font(キーワード引数1=値, キーワード引数2=値・・・)
+```
+
+- 例：フォントサイズを18pt, 太文字にする設定です
+
+```py
+Font(size=18, bold=True)
+```
+
+- 例：フォントサイズを24pt, 斜体にする設定です
+
+```py
+Font(size=24, italic=True)
+```
+
+---
+
+# `Font()`関数の代表的な引数
+
+<div Align=center>
+
+|  引数名  | データ型 |                            解説                            |
+| -------- | -------- | ---------------------------------------------------------- |
+| `name`   | 文字列型 | フォント名を指定します（例：`name='メイリオ'`）            |
+| `size`   | 整数型   | フォントsizeを変更します（例：`size=18`）                  |
+| `bold`   | ブール型 | `True`で太文字になります（例：`bold=True`）                |
+| `italic` | ブール型 | `True`でイタリック(斜体)になります（例：`italic=True`）    |
+| `color`  | 文字列型 | カラーコードで文字の色を指定します（例：`color='FF0000'`） |
+| `strike` | ブール型 | `True`で打ち消し線が引けます（例：`strike=True`）          |
+
+</div>
+
+---
+
+# フォントを設定します
+
+```py
+wb = op.Workbook()
+sheet = wb.active
+
+sheet['B2'] = '18pt bold'
+sheet['B2'].font = Font(size=18, bold=True)
+
+sheet['B4'] = '24pt 下線'
+sheet['B4'].font = Font(size=24, underline='single')
+
+wb.save('/content/drive/MyDrive/???/font.xlsx')
+```
+
+---
+
+# フォントを設定します（結果）
+
+<div Align=center>
+
+![](./img/05-005.png)
+
+</div>
+
+---
+
+<div Align=center>
+
+# Excelのレイアウトを編集
+
+</div>
+
+---
+
+# Excelの行高と列幅を設定する
+
+- Excelの行高と列幅を設定する方法
+  - **行高**：行番号を指定して高さの数値（**ポイント**）を入力します
+  ```py
+  Worksheetオブジェクト.row_dimensions[行番号].height = 高さの数値
+  ```
+  - **列幅**：列番号を指定して幅の数値（**文字数**）を入力します
+  ```py
+  Worksheetオブジェクト.column_dimensions[列番号].width = 幅の数値
+  ```
+行高と列幅で単位が異なるので注意が必要です
+
+---
+
+# Excelの行高と列幅を設定する
+
+- Excelの行高と列幅を設定する例です
+  - **行高の設定**：2行目を「50」に設定します
+  - **列幅の設定**：C列目を「50」に設定します
+
+```py
+wb = op.Workbook()
+sheet = wb.active
+
+sheet.row_dimensions[2].height = 50
+sheet.column_dimensions['C'].width = 50
+wb.save('/content/drive/MyDrive/???/row_column.xlsx')
+```
+
+---
+
+# Excelの行高と列幅を設定する（結果）
+
+<div Align=center>
+
+![](./img/05-006.png)
+
+</dvi>
+
+---
+
+# Excelの行や列を非表示にする
+
+## 行や列を非表示にする`hidden`属性
+
+### 行や列を指定して非表示設定にします
+```py
+Worksheetオブジェクト.row_dimensions[行番号].hidden = True
+Worksheetオブジェクト.column_dimensions[列番号].hidden = True
+```
+### 非表示の行や列を表示します
+```py
+Worksheetオブジェクト.row_dimensions[行番号].hidden = False
+Worksheetオブジェクト.column_dimensions[列番号].hidden = False
+```
+
+---
+
+
+# Excelの行や列を非表示にする
+
+- 3行目とB,D列を非表示設定にする例です
+
+```py
+wb = op.Workbook()
+sheet = wb.active
+
+#セルA1〜E5に1〜25の数字を入れる
+for i in range(1,6):
+  for j in range(1,6):
+    sheet.cell(j,i).value = i * j
+
+sheet.row_dimensions[3].hidden = True			# 3行目を非表示
+sheet.column_dimensions['B'].hidden =True		# B行を非表示
+sheet.column_dimensions['D'].hidden =True		# D行を非表示
+wb.save('/content/drive/MyDrive/???/row_column_hidden.xlsx')
+```
+
+---
+
+# Excelの行や列を非表示にする
+
+- 3行目とB,D列を非表示設定にする例です
+
+<div Align=center>
+
+![](./img/05-007.png)
+
+</div>
+
+---
+
+# Excelの行と列を固定表示にする
+
+## Excelの行と列を固定表示します
+- 固定する行や列の下もしくは右，右下のセルを指定します
+- 例：1行目のみ固定する場合：指定するセルは「`A2`」
+- 例：B列まで固定する場合：指定するセルは「`C1`」
+- 例：2行目とC列まで固定する場合：指定するセルは「`D3`」
+
+```py
+Worksheetオブジェクト.freeze_panes = セル
+```
+
+---
+
+# Excelの行と列を固定表示にする
+
+- ２行目までを固定にします
+
+```py
+wb = op.Workbook()
+sheet = wb.active
+
+#セルA1〜E5に1〜25の数字を入れる
+for i in range(1,6):
+  for j in range(1,6):
+    sheet.cell(j,i).value = i * j
+
+sheet.freeze_panes = 'A3'	# 2行目までを固定:セルA3を指定
+
+wb.save('/content/drive/MyDrive/???/freeze-panes.xlsx')
+```
+
+---
+
+# Excelの行と列を固定表示にする(結果)
+
+<div Align=center>
+
+![](./img/05-008.png)
+
+</div>
 
 ---
 
@@ -408,7 +458,7 @@ for cell in list(sheet.columns)[1]:
 
 # 課題
 
-- Moodleにある「SCfCL-4th-prac.ipynb」ファイルと「memberlist.xlsx」ファイルをダウンロードしてColabにアップロードしてください
+- Moodleにある「SCfCL-05-prac.ipynb」ファイルをダウンロードしてColabにアップロードしてください
 - 課題が完了したら「File」>「Download」>「Download .ipynb」で「.ipynb」形式でダウンロードしてください
-- ダウンロードした **.ipynbファイル** をMoodleに提出してください
-- 提出期限は **11月17日(木) 20時まで** です
+- ダウンロードした **.ipynbファイル** と作成した **Excelファイル3つ** をMoodleに提出してください
+- 提出期限は **10月24日(木) 20時まで** です
