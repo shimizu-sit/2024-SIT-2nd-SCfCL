@@ -336,7 +336,7 @@ print(value)
   - `row=`と`colum=` は省略可能です
 
 ```python
-Workbookオブジェクト.Cell(row=行数番号, colum=列数番号)
+Worksheetオブジェクト.Cell(row=行数番号, colum=列数番号)
 ```
 
 <div Align=center>
