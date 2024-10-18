@@ -382,7 +382,7 @@ sheet = wb.active
 #セルA1〜E5に1〜25の数字を入れる
 for i in range(1,6):
   for j in range(1,6):
-    sheet.cell(j,i).value = i * j
+    sheet.cell(j,i).value = (j - 1) * 5 + 1
 
 sheet.row_dimensions[3].hidden = True			# 3行目を非表示
 sheet.column_dimensions['B'].hidden =True		# B行を非表示
@@ -429,7 +429,7 @@ sheet = wb.active
 #セルA1〜E5に1〜25の数字を入れる
 for i in range(1,6):
   for j in range(1,6):
-    sheet.cell(j,i).value = i * j
+    sheet.cell(j,i).value = (j - 1) * 5 + 1
 
 sheet.freeze_panes = 'A3'	# 2行目までを固定:セルA3を指定
 
