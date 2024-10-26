@@ -1,5 +1,5 @@
 ---
-title: 第5回 コンピュータリテラシ発展
+title: 第6回 コンピュータリテラシ発展
 theme: "default"
 marp: true
 math: katex
@@ -8,7 +8,7 @@ paginate: true
 
 # コンピュータリテラシ発展 〜Pythonを学ぶ〜
 
-## 第5回：Excel作業を自動化しよう(2)
+## 第6回：Excel作業を自動化しよう(3)
 
 情報学部 情報学科 情報メディア専攻
 清水 哲也 ( shimizu@info.shonan-it.ac.jp )
