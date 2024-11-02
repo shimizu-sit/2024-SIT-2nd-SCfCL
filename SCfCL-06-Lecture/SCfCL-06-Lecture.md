@@ -163,7 +163,7 @@ Worksheetオブジェクト.add_chart(Chartオブジェクト, 'グラフを追�
 
 <div Align=center>
 
-![w:700](img/06-002.png)
+![w:700](./img/06-002.png)
 
 </div>
 
