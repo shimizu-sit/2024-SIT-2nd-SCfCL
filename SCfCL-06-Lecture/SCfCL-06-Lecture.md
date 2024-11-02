@@ -171,21 +171,50 @@ Worksheetオブジェクト.add_chart(Chartオブジェクト, 'グラフを追�
 
 # グラフをつくる
 
+### OpenPyXLのバージョンを下げます
+
+ColabにインストールされているOpenPyXLのバージョンが`3.1.5`になっています
+**確認方法**
+
+```py
+!pip list | grep openpyxl
+```
+
+**OpenPyXL 3.1.3をインストール**
+
+```py
+!pip install openpyxl==3.1.3
+```
+
+**ライブラリなどのインポート**
 ```py
 import openpyxl as op
 from openpyxl.chart import BarChart, Reference
+```
 
+---
+
+# グラフをつくる
+
+```py
 wb = op.load_workbook(‘/content/drive/MyDrive/????/sample_chart.xlsx’)
 ws = wb['Sheet']
 
+# グラフに使用するデータ範囲を指定（列2の行5から行14まで）
 data = Reference(ws, min_col=2, min_row=5, max_col=2, max_row=14)
 
+# 棒グラフのオブジェクトを作成
 chart = BarChart()
+
+# グラフのタイトルを設定
 chart.title = 'Sample Chart'
+
+# グラフにデータを追加
 chart.add_data(data)
 
+# ワークシートにグラフを追加し、セル'D5'に配置
 ws.add_chart(chart, 'D5')
-wb.save(‘/content/drive/MyDrive/????/sample_chart-1.xlsx’)
+wb.save('/content/drive/MyDrive/????/sample_chart-1.xlsx')
 ```
 
 ---
@@ -214,21 +243,26 @@ wb.save(‘/content/drive/MyDrive/????/sample_chart-1.xlsx’)
 # データから系列をつくる
 
 ```py
-import openpyxl as op
-from openpyxl.chart import BarChart, Reference, Series
-
 wb = op.load_workbook(‘/content/drive/MyDrive/????/sample_chart.xlsx’)
 ws = wb[‘Sheet’]
 
 ref_obj = Reference(ws, min_col=2, min_row=5, max_col=2, max_row=14)
-series_obj = Series(ref_obj, title = ‘Sample Series’)
 
+# データシリーズを作成し、タイトルを設定
+series_obj = Series(ref_obj, title='Sample Series')
+
+# 棒グラフのオブジェクトを作成
 chart = BarChart()
+
+# グラフのタイトルを設定
 chart.title = 'Sample Chart'
+
+# データシリーズをグラフに追加
 chart.append(series_obj)
 
+# ワークシートにグラフを追加し、セル'D5'に配置
 ws.add_chart(chart, 'D5')
-wb.save(‘/content/drive/MyDrive/????/sample_chart-2.xlsx’)
+wb.save('/content/drive/MyDrive/????/sample_chart-2.xlsx')
 ```
 
 ---
