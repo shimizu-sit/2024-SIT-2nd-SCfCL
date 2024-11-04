@@ -238,6 +238,11 @@ wb.save('/content/drive/MyDrive/????/sample_chart-1.xlsx')
 - `Series`オブジェクトは`Reference`オブジェクトをわたして生成します
 - `Series`オブジェクトのタイトルは`Chart`オブジェクトの`append()`メソッドにわたします
 
+**`Series`ライブラリをインポート**
+```py
+from openpyxl.chart import Series
+```
+
 ---
 
 # データから系列をつくる
