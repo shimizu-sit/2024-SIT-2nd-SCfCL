@@ -269,7 +269,7 @@ os.makedirs('file-name', exist_ok = True)
 
 ---
 
-# フォルを作成
+# フォルダを作成
 
 - フォルダを作成します
 - `makedirs()`関数
@@ -418,7 +418,7 @@ open('file.txt', mode='r', encoding='UTF-8', newline=None, ...)
     - 引数に書き込み内容を渡します
   - `read()`メソッド
     - `open()`関数で開いたファイルを読み込みます 
-    - デフォルトの読み込みモード「`r`」
+    - デフォルトは読み込みモード「`r`」
 
 ---
 
