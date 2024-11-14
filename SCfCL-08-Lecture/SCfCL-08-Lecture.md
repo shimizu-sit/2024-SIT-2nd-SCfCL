@@ -47,7 +47,7 @@ paginate: true
 
 ## 解答例
 
-
+https://colab.research.google.com/drive/1AyUcGRLq6J0OZVbtL2yQqf20qJjSJayr?usp=sharing
 
 ---
 
@@ -538,6 +538,6 @@ df.to_csv(path +'sample2.csv', index=False, header=None)
 
 - Moodleにある「SCfCL_08_prac.ipynb」ファイルをダウンロードしてColabにアップロードしてください
 - 課題が完了したら「File」>「Download」>「Download .ipynb」で「.ipynb」形式でダウンロードしてください
-- ダウンロードした **.ipynbファイル** と作成した「Prac09」フォルダを圧縮してMoodleに提出してください
+- ダウンロードした **.ipynbファイル** と作成した「Prac08」フォルダを圧縮してMoodleに提出してください
 
 ## 提出期限は **11月21日(木) 20時まで** です
