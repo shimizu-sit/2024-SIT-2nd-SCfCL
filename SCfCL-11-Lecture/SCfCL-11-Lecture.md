@@ -82,7 +82,7 @@ paginate: true
 
 # データの準備
 
-Colab上のフォルダ構成は以下のようになります．
+Colab上でGoogle Driveのフォルダ構成は以下のようになります．
 
 <div Align=center>
 
@@ -109,7 +109,7 @@ Colab上のフォルダ構成は以下のようになります．
 
 <div Align=center>
 
-|    2024年06月_売上.xlsx    |    取引先流入元.xlsx    |
+|    2024年06月_売上.xlsx    |     取引先流入元.xlsx      |
 | -------------------------- | -------------------------- |
 | ![h:300](./img/11-004.png) | ![h:300](./img/11-005.png) |
 
@@ -121,6 +121,7 @@ Colab上のフォルダ構成は以下のようになります．
 
 - 今回は，Pythonファイル(.ipynb)を先程作成した「**sales_analysis**」ファルダ内に作成します
 - ファイル名は自由に決めてください
+- 例：`SCfCL_11_Lecture.ipynb` など
 
 ---
 
@@ -225,7 +226,7 @@ sales_summary
 - 自分のパソコンでpythonファイルを作成して実行する場合は1つのファイルにまとめた方がいいです
 - 一連の処理は関数にまとめると処理の内容がわかりやすいです
 
-https://colab.research.google.com/drive/1lucSLqnBv5ZSfBZlI1hffOxG0TGrM0ye?usp=sharing
+https://colab.research.google.com/drive/1QF6ll_Gug0DibzXuOj_YJ1Rv802O8rGZ?usp=sharing
 
 ---
 
@@ -312,7 +313,7 @@ with pd.ExcelWriter(output_path + 'summary.xlsx') as writer:
 - 自分のパソコンでpythonファイルを作成して実行する場合は1つのファイルにまとめた方がいいです
 - 一連の処理は関数にまとめると処理の内容がわかりやすいです
 
-https://colab.research.google.com/drive/122_uRzAECbfEJLcpUiLgdkCRSANpO8zI?usp=sharing
+https://colab.research.google.com/drive/1f0tVeGPE-746AZeAuwscT2cunXKAuvIS?usp=sharing
 
 ---
 
@@ -326,8 +327,8 @@ https://colab.research.google.com/drive/122_uRzAECbfEJLcpUiLgdkCRSANpO8zI?usp=sh
 
 # 課題
 
-- Moodleにある「SCfCL_10_prac.ipynb」ファイルをダウンロードしてColabにアップロードしてください
+- 今回の授業でやったことを提出してください
 - 課題が完了したら「File」>「Download」>「Download .ipynb」で「.ipynb」形式でダウンロードしてください
 - ダウンロードした **.ipynbファイル** をMoodleに提出してください
 
-## 提出期限は **11月28日(木) 20時まで** です
+## 提出期限は **12月12日(木) 20時まで** です
